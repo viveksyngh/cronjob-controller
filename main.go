@@ -30,6 +30,7 @@ import (
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 
 	batchv1 "github.com/viveksyngh/cronjob-controller/api/v1"
+	batchv2 "github.com/viveksyngh/cronjob-controller/api/v2"
 	"github.com/viveksyngh/cronjob-controller/controllers"
 	// +kubebuilder:scaffold:imports
 )
@@ -43,6 +44,7 @@ func init() {
 	_ = clientgoscheme.AddToScheme(scheme)
 
 	utilruntime.Must(batchv1.AddToScheme(scheme))
+	utilruntime.Must(batchv2.AddToScheme(scheme))
 	// +kubebuilder:scaffold:scheme
 }
 
@@ -107,5 +109,6 @@ func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
 	utilruntime.Must(batchv1.AddToScheme(scheme))
+	utilruntime.Must(batchv2.AddToScheme(scheme))
 	//+kubebuilder:scaffold:scheme
 }
